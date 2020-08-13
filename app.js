@@ -23,7 +23,7 @@ async function sendMail(humidity) {
     });
     let info = await transporter.sendMail({
         from: process.env.GOOGLE_ADDR,
-        to: '2813818122@vtext.com',
+        to: process.env.RECIPIENT,
         subject: 'Humidity Alert',
         text: 'Humidity Alert!  Humidity Level: ' + humidity
     });
@@ -32,7 +32,7 @@ async function sendMail(humidity) {
 
 async function run() {
     try {
-        let url = process.env.WEATHER_API_BASE_ADDRESS + 'weather?zip=87110&appid=' + process.env.WEATHER_API_KEY;
+        let url = process.env.WEATHER_API_BASE_ADDRESS + 'weather?zip=' + process.env.ZIPCODE + '&appid=' + process.env.WEATHER_API_KEY;
         const res = await superagent.get(url);
         console.log(res);
         let humidity = res.body.main.humidity;
