@@ -1,0 +1,22 @@
+{
+  "name": "untitled",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "test": "nodemon app.js"
+  },
+  "dependencies": {
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "forever": "^3.0.0",
+    "hbs": "~4.0.4",
+    "nodemailer": "^6.4.11",
+    "set-interval-async": "^1.0.33",
+    "superagent": "^6.0.0",
+    "superagent-cache": "^3.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
