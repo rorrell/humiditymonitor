@@ -35,8 +35,11 @@ async function run() {
         let url = process.env.WEATHER_API_BASE_ADDRESS + 'weather?zip=87110&appid=' + process.env.WEATHER_API_KEY;
         const res = await superagent.get(url);
         console.log(res);
-        let info = await sendMail(res.body.main.humidity);
-        console.log(info);
+        let humidity = res.body.main.humidity;
+        if(humidity < 30) {
+            let info = await sendMail(humidity);
+            console.log(info);
+        }
     } catch(err) {
         console.log(err);
     }
